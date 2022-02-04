@@ -1,0 +1,69 @@
+.buttons{
+    /* border: red solid; */
+    /* background-color: black; */
+    width: 30vw;
+    height: 30vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+	"clear clear divide multiply"
+	"seven eight nine minus"
+	"four five six plus"
+    "one two three equals"
+    "zero zero decimal equals"
+}
+button{
+    width:100%;
+    height: 100%;
+    cursor: pointer;
+}
+.equals{
+    grid-area: equals;
+}
+.clear {
+    grid-area: clear;
+}
+.divide {
+    grid-area: divide;
+}
+.multiply{
+    grid-area: multiply;
+}
+.minus{
+    grid-area: minus;
+}
+.decimal{
+    grid-area: decimal;
+}
+.zero{
+    grid-area: zero;
+}
+.one{
+    grid-area: one;
+    height: 100%
+}
+.two{
+    grid-area: two;
+}
+.three{
+    grid-area: three;
+}
+.four{
+    grid-area: four;
+}
+.five{
+    grid-area: five;
+}
+.six{
+    grid-area: six;
+}
+.seven{
+    grid-area: seven;
+}
+.eight{
+    grid-area: eight;
+}
+.nine{
+    grid-area: nine;
+}
