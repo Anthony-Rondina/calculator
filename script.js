@@ -235,16 +235,14 @@ const operator = (e) => {
     switch (e.target.id) {
         case "plusBtn":
             plus = true
-            proceed = true
             if (!firstNumber.used) {
                 firstNumber.used = true
-                console.log("first is", firstNumber.used)
+                console.log("first is", firstNumber.used, firstNumber.value)
                 decimal = false
             } else if (!secondNumber.used) {
                 secondNumber.used = true
-                console.log("second is", secondNumber.used)
+                console.log("second is", secondNumber.used, secondNumber.value)
                 decimal = false
-
             } else {
                 thirdNumber.used = true
                 console.log("third is", thirdNumber.used)
@@ -292,7 +290,7 @@ const calculate = () => {
                 total = parseFloat(firstNumber.value) + parseFloat(secondNumber.value)
                 secondNumber.used = true
                 console.log("second is", secondNumber.used)
-                display.textContent = total
+                display.textContent = total.toFixed(2)
                 minus = false
                 plus = false
                 divide = false
@@ -302,7 +300,7 @@ const calculate = () => {
                 total = parseInt(firstNumber.value) + parseInt(secondNumber.value)
                 secondNumber.used = true
                 console.log("second is", secondNumber.used)
-                display.textContent = total
+                display.textContent = total.toFixed(2)
                 minus = false
                 plus = false
                 divide = false
@@ -311,7 +309,7 @@ const calculate = () => {
         } else {
             if (decimal) {
                 total = parseFloat(total) + parseFloat(thirdNumber.value)
-                display.textContent = total
+                display.textContent = total.toFixed(2)
                 minus = false
                 plus = false
                 divide = false
@@ -320,7 +318,7 @@ const calculate = () => {
                 thirdNumber.used = false
             } else {
                 total = parseInt(total) + parseInt(thirdNumber.value)
-                display.textContent = total
+                display.textContent = total.toFixed(2)
                 minus = false
                 plus = false
                 divide = false
