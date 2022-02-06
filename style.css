@@ -10,18 +10,34 @@
     height: 30vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
-	"clear clear divide multiply"
-	"seven eight nine minus"
-	"four five six plus"
-    "one two three equals"
-    "zero zero decimal equals"
+	"clear clear delete divide"
+	"seven eight nine multiply"
+	"four five six minus"
+    "one two three plus"
+    "zero decimal equals equals"
 }
 body {
     background-image: url(1002129286.jpg);
     background-size: cover;
+    height: 100%;
 
+}
+.displayBackground{
+    /* border: solid red; */
+    border: 1px solid black;
+    border-radius: 3%;
+    background-color: black;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    grid-column: 1 / -1;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+    height: 80px;
 }
 .calculator {
     min-width: 350px;
@@ -48,23 +64,18 @@ button{
     font-size: 2em;
 }
 .display{
-    min-width: 350px;
-    max-width: 380px;
-    margin-top: 10%;
-    margin-bottom: 10%;
     font-size: 2.5em;
-    font-family: 'digital-7';
-    padding: 5px;
-    width: 28vw;
-    text-align: right;
-    background-color: black;
     color: lightgreen;
 }
-.display::placeholder{
+.previousNumber{
+    font-size: 1.5em;
     color: lightgreen;
 }
 .equals{
     grid-area: equals;
+}
+.delete{
+    grid-area: delete;
 }
 #equalsBtn{
     background-color: green;
@@ -120,4 +131,24 @@ button{
 }
 .nine{
     grid-area: nine;
+}
+#multiplyBtn {
+    font-size: 2.5em;
+    text-align: center;
+}
+#plusBtn {
+    font-size: 2.5em;
+    text-align: center;
+}
+#minusBtn {
+    font-size: 2.5em;
+    text-align: center;
+}
+#divideBtn {
+    font-size: 2.5em;
+    text-align: center;
+}
+#decimalBtn {
+    font-size: 3em;
+    text-align: center;
 }

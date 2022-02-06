@@ -43,6 +43,7 @@ let total = {
 }
 
 const assignNumbers = (e) => {
+    secondNumber.value = 0
     console.log('saved status is ', firstNumber.saved)
     if (display.value == 0) {
         display.value = ''
@@ -180,9 +181,9 @@ const assignNumbers = (e) => {
 }
 
 const operator = (e) => {
-    if (plus || minus || divide || multiply) {
-        calculate()
-    }
+    // if (plus || minus || divide || multiply) {
+    //     calculate()
+    // }
     switch (e.target.id) {
         case "plusBtn":
             plus = true
@@ -245,26 +246,23 @@ const calculate = () => {
                 total = parseFloat(firstNumber.value) + parseFloat(secondNumber.value)
                 display.value = total.toFixed(2)
                 firstNumber.value = total
-                minus = false
-                plus = false
-                divide = false
-                multiply = false
             } else {
                 console.log('no decimal')
+                secondNumber.value = parseInt(secondNumber.value)
                 console.log(firstNumber.value, secondNumber.value)
                 total = parseInt(firstNumber.value) + parseInt(secondNumber.value)
                 display.value = total
                 firstNumber.value = total
                 console.log(total)
-                minus = false
-                plus = false
-                divide = false
-                multiply = false
             }
             console.log("first is", firstNumber.saved, firstNumber.value)
         }
+        minus = false
+        plus = false
+        divide = false
+        multiply = false
         decimal = false
-        secondNumber.value = 0
+        // secondNumber.value = 0
     } else if (minus) {
         if (firstNumber.saved) {
             if (firstNumber.value % 1 != 0 || display.value % 1 != 0) {
@@ -291,8 +289,12 @@ const calculate = () => {
             }
             console.log("first is", firstNumber.saved, firstNumber.value)
         }
+        minus = false
+        plus = false
+        divide = false
+        multiply = false
         decimal = false
-        secondNumber.value = 0
+        // secondNumber.value = 0
     } else if (divide) {
         if (firstNumber.saved) {
             if (firstNumber.value % 1 != 0 || display.value % 1 != 0) {
@@ -319,8 +321,12 @@ const calculate = () => {
             }
             console.log("first is", firstNumber.saved, firstNumber.value)
         }
+        minus = false
+        plus = false
+        divide = false
+        multiply = false
         decimal = false
-        secondNumber.value = 0
+        // secondNumber.value = 0
     } else if (multiply) {
         if (firstNumber.saved) {
             if (firstNumber.value % 1 != 0 || display.value % 1 != 0) {
@@ -329,6 +335,7 @@ const calculate = () => {
                 total = parseFloat(firstNumber.value) * parseFloat(secondNumber.value)
                 display.value = total.toFixed(2)
                 firstNumber.value = total
+                console.log(firstNumber.value)
                 minus = false
                 plus = false
                 divide = false
@@ -337,9 +344,9 @@ const calculate = () => {
                 console.log('no decimal')
                 console.log(firstNumber.value, secondNumber.value)
                 total = parseInt(firstNumber.value) * parseInt(secondNumber.value)
+                console.log(total)
                 display.value = total
                 firstNumber.value = total
-                console.log(total)
                 minus = false
                 plus = false
                 divide = false
@@ -347,8 +354,12 @@ const calculate = () => {
             }
             console.log("first is", firstNumber.saved, firstNumber.value)
         }
+        minus = false
+        plus = false
+        divide = false
+        multiply = false
         decimal = false
-        secondNumber.value = 0
+        // secondNumber.value = 0
     }
 }
 let toggle = 0

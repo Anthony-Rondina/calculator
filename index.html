@@ -5,73 +5,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="script.js"></script>
+    <script defer src="script2.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Anthony's Calculator</title>
-    <style>
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-
-        input[type=number] {
-            -moz-appearance: textfield;
-        }
-    </style>
 </head>
 
 <body>
     <div class="wrapper">
         <div class="calculator">
-            <div>
-                <input type="number" class="display" placeholder='0'>
-
+            <div class="displayBackground">
+                <div class="previousNumber"></div>
+                <div class="display currentNumber"></div>
             </div>
             <div class="buttons">
-                <div class="zero">
+                <div class="zero number">
                     <button id="zeroBtn">0</button>
                 </div>
-                <div class="one">
+                <div class="one number">
                     <button id="oneBtn">1</button>
                 </div>
-                <div class="two">
+                <div class="two number">
                     <button id="twoBtn">2</button>
                 </div>
-                <div class="three">
+                <div class="three number">
                     <button id="threeBtn">3</button>
                 </div>
-                <div class="four">
+                <div class="four number">
                     <button id="fourBtn">4</button>
                 </div>
-                <div class="five">
+                <div class="five number">
                     <button id="fiveBtn">5</button>
                 </div>
-                <div class="six">
+                <div class="six number">
                     <button id="sixBtn">6</button>
                 </div>
-                <div class="seven">
+                <div class="seven number">
                     <button id="sevenBtn">7</button>
                 </div>
-                <div class="eight">
+                <div class="eight number">
                     <button id="eightBtn">8</button>
                 </div>
-                <div class="nine">
+                <div class="nine number">
                     <button id="nineBtn">9</button>
                 </div>
-                <div class="plus">
+                <div class="plus operation">
                     <button id="plusBtn">+</button>
                 </div>
-                <div class="minus">
+                <div class="minus operation">
                     <button id="minusBtn">-</button>
                 </div>
-                <div class="multiply">
-                    <button id="multiplyBtn">x</button>
+                <div class="multiply operation">
+                    <button id="multiplyBtn">*</button>
                 </div>
-                <div class="divide">
-                    <button id="divideBtn">/</button>
+                <div class="divide operation">
+                    <button id="divideBtn">÷</button>
                 </div>
-                <div class="decimal">
+                <div class="decimal number">
                     <button id="decimalBtn">.</button>
                 </div>
                 <div class="equals">
@@ -79,6 +68,9 @@
                 </div>
                 <div class="clear">
                     <button id="clearBtn">AC</button>
+                </div>
+                <div class="delete">
+                    <button class="deleteBtn">DEL</button>
                 </div>
             </div>
         </div>
