@@ -1,4 +1,8 @@
 
+@font-face{
+    font-family:'digital-7';
+    src: url('digital-7/digital-7.ttf');
+   }
 .buttons{
     min-width: 350px;
     max-width: 400px;
@@ -65,11 +69,13 @@ button{
     font-size: 2em;
 }
 .display{
-    font-size: 2.5em;
+    font-size: 3em;
+    font-family:'digital-7';
     color: lightgreen;
 }
 .previousNumber{
-    font-size: 1.5em;
+    font-size: 2em;
+    font-family:'digital-7';    
     color: lightgreen;
 }
 .equals{
