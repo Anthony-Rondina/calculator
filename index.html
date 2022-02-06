@@ -8,13 +8,25 @@
     <script defer src="script.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Anthony's Calculator</title>
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
 </head>
 
 <body>
     <div class="wrapper">
         <div class="calculator">
             <div>
-                <p class="display">0</p>
+                <input type="number" class="display" placeholder='0'>
+
             </div>
             <div class="buttons">
                 <div class="zero">
@@ -66,7 +78,7 @@
                     <button id="equalsBtn">=</button>
                 </div>
                 <div class="clear">
-                    <button id="clearBtn">C</button>
+                    <button id="clearBtn">AC</button>
                 </div>
             </div>
         </div>

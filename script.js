@@ -18,8 +18,7 @@ let multiplyBtn = document.querySelector("#multiplyBtn")
 let clearBtn = document.querySelector("#clearBtn")
 let decimalBtn = document.querySelector("#decimalBtn")
 
-display.textContent = 0
-let proceed = false
+display.value = 0
 let decimal = false
 //set operator conditions
 let minus = false
@@ -30,394 +29,342 @@ let multiply = false
 //Create first number object
 let firstNumber = {
     value: '',
-    used: false
+    saved: false
 }
 //Create second number object
 let secondNumber = {
     value: '',
-    used: false
-}
-//Create third number object
-let thirdNumber = {
-    value: '',
-    used: false
+    saved: false
 }
 //Create total number object
 let total = {
     value: '',
-    used: false
+    saved: false
 }
 
 const assignNumbers = (e) => {
-    if (display.textContent == 0) {
-        display.textContent = ''
+    console.log('saved status is ', firstNumber.saved)
+    if (display.value == 0) {
+        display.value = ''
     }
-    if (display.textContent == firstNumber.value) {
-        display.textContent = ''
-    } else if (display.textContent == secondNumber.value) {
-        display.textContent = ''
-    } else if (display.textContent == total) {
-        display.textContent = ''
+    if (display.value == firstNumber.value) {
+        display.value = ''
+    } else if (display.value == total) {
+        display.value = ''
     }
-
     switch (e.target.id) {
         case 'decimalBtn':
-            if (!firstNumber.used) {
+            if (!firstNumber.saved) {
                 if (decimal) {
-                    display.textContent = firstNumber.value
+                    display.value = parseFloat(firstNumber.value)
                 } else {
-                    firstNumber.value += "."
                     decimal = true
-                    display.textContent += firstNumber.value
+                    firstNumber.value += "."
+                    console.log(firstNumber.value)
+                    display.value += parseFloat(firstNumber.value)
                 }
-            } else if (!secondNumber.used) {
+            } else {
                 if (decimal) {
-                    display.textContent = firstNumber.value
+                    display.value = parseFloat(secondNumber.value)
+                    console.log('test')
                 } else {
                     decimal = true
                     secondNumber.value += "."
-                    display.textContent += secondNumber.value
-                }
-            } else if (thirdNumber.used) {
-                if (decimal) {
-                    display.textContent = firstNumber.value
-                } else {
-                    decimal = true
-                    thirdNumber.value += "."
-                    display.textContent += "."
-                    console.log(thirdNumber.value)
+                    console.log(secondNumber.value)
+                    display.value = parseFloat(secondNumber.value)
+                    console.log(display.value)
                 }
             }
             break;
         case 'zeroBtn':
-            if (!firstNumber.used) {
+            if (!firstNumber.saved) {
                 firstNumber.value += "0"
-                display.textContent += firstNumber.value
-            } else if (!secondNumber.used) {
-                secondNumber.value += "0"
-                display.textContent += secondNumber.value
-            } else if (thirdNumber.used) {
-                thirdNumber.value += "0"
-                display.textContent += 0
-                console.log(thirdNumber.value)
+                display.value = firstNumber.value
+                console.log(firstNumber.value)
+            } else {
+                secondNumber.value += '0'
+                display.value += "0"
             }
             break;
         case 'oneBtn':
-            if (!firstNumber.used) {
+            if (!firstNumber.saved) {
                 firstNumber.value += "1"
-                display.textContent = firstNumber.value
-            } else if (!secondNumber.used) {
-                secondNumber.value += "1"
-                display.textContent += secondNumber.value
-            } else if (thirdNumber.used) {
-                thirdNumber.value += "1"
-                display.textContent += 1
-                console.log(thirdNumber.value)
-
+                display.value = firstNumber.value
+                console.log(firstNumber.value)
+            } else {
+                secondNumber.value += '1'
+                display.value += "1"
             }
             break;
         case "twoBtn":
-            if (!firstNumber.used) {
+            if (!firstNumber.saved) {
                 firstNumber.value += "2"
-                display.textContent += firstNumber.value
-            } else if (!secondNumber.used) {
-                secondNumber.value += "2"
-                display.textContent += secondNumber.value
-            } else if (thirdNumber.used) {
-                thirdNumber.value += "2"
-                display.textContent += 2
-                console.log(thirdNumber.value)
-
+                display.value = firstNumber.value
+                console.log(firstNumber.value)
+            } else {
+                secondNumber.value += '2'
+                display.value += "2"
             }
             break;
         case "threeBtn":
-            if (!firstNumber.used) {
+            if (!firstNumber.saved) {
                 firstNumber.value += "3"
-                display.textContent += firstNumber.value
-            } else if (!secondNumber.used) {
-                secondNumber.value += "3"
-                display.textContent += secondNumber.value
-            } else if (thirdNumber.used) {
-                thirdNumber.value += "3"
-                display.textContent += 3
-                console.log(thirdNumber.value)
-
+                display.value = firstNumber.value
+                console.log(firstNumber.value)
+            } else {
+                secondNumber.value += '3'
+                display.value += "3"
             }
             break;
         case "fourBtn":
-            if (!firstNumber.used) {
+            if (!firstNumber.saved) {
                 firstNumber.value += "4"
-                display.textContent += firstNumber.value
-            } else if (!secondNumber.used) {
-                secondNumber.value += "4"
-                display.textContent += secondNumber.value
-            } else if (thirdNumber.used) {
-                thirdNumber.value += "4"
-                display.textContent += 4
-                console.log(thirdNumber.value)
-
+                display.value = firstNumber.value
+                console.log(firstNumber.value)
+            } else {
+                secondNumber.value += '4'
+                display.value += "4"
             }
             break;
         case "fiveBtn":
-            if (!firstNumber.used) {
+            if (!firstNumber.saved) {
                 firstNumber.value += "5"
-                display.textContent += firstNumber.value
-            } else if (!secondNumber.used) {
-                secondNumber.value += "5"
-                display.textContent += secondNumber.value
-            } else if (thirdNumber.used) {
-                thirdNumber.value += "5"
-                display.textContent += 5
-                console.log(thirdNumber.value)
-
+                display.value = firstNumber.value
+                console.log(firstNumber.value)
+            } else {
+                secondNumber.value += '5'
+                display.value += "5"
             }
             break;
         case "sixBtn":
-            if (!firstNumber.used) {
+            if (!firstNumber.saved) {
                 firstNumber.value += "6"
-                display.textContent += firstNumber.value
-            } else if (!secondNumber.used) {
-                secondNumber.value += "6"
-                display.textContent += secondNumber.value
-            } else if (thirdNumber.used) {
-                thirdNumber.value += "6"
-                display.textContent += 6
-                console.log(thirdNumber.value)
-
+                display.value = firstNumber.value
+                console.log(firstNumber.value)
+            } else {
+                secondNumber.value += '6'
+                display.value += "6"
             }
             break;
         case "sevenBtn":
-            if (!firstNumber.used) {
+            if (!firstNumber.saved) {
                 firstNumber.value += "7"
-                display.textContent += firstNumber.value
-            } else if (!secondNumber.used) {
-                secondNumber.value += "7"
-                display.textContent += secondNumber.value
-            } else if (thirdNumber.used) {
-                thirdNumber.value += "7"
-                display.textContent += 7
-                console.log(thirdNumber.value)
-
+                display.value = firstNumber.value
+                console.log(firstNumber.value)
+            } else {
+                secondNumber.value += '7'
+                display.value += "7"
             }
             break;
         case "eightBtn":
-            if (!firstNumber.used) {
+            if (!firstNumber.saved) {
                 firstNumber.value += "8"
-                display.textContent += firstNumber.value
-            } else if (!secondNumber.used) {
-                secondNumber.value += "8"
-                display.textContent += secondNumber.value
-            } else if (thirdNumber.used) {
-                thirdNumber.value += "8"
-                display.textContent += 8
-                console.log(thirdNumber.value)
-
+                display.value = firstNumber.value
+                console.log(firstNumber.value)
+            } else {
+                secondNumber.value += '8'
+                display.value += "8"
             }
             break;
         case "nineBtn":
-            if (!firstNumber.used) {
+            if (!firstNumber.saved) {
                 firstNumber.value += "9"
-                display.textContent += firstNumber.value
-            } else if (!secondNumber.used) {
-                secondNumber.value += "9"
-                display.textContent += secondNumber.value
-            } else if (thirdNumber.used) {
-                thirdNumber.value += "9"
-                display.textContent += 9
-                console.log(thirdNumber.value)
-
+                display.value = firstNumber.value
+                console.log(firstNumber.value)
+            } else {
+                secondNumber.value += '9'
+                display.value += "9"
             }
             break;
     }
 }
 
 const operator = (e) => {
+    if (plus || minus || divide || multiply) {
+        calculate()
+    }
     switch (e.target.id) {
         case "plusBtn":
             plus = true
-            if (!firstNumber.used) {
-                firstNumber.used = true
-                console.log("first is", firstNumber.used, firstNumber.value)
-                decimal = false
-            } else if (!secondNumber.used) {
-                secondNumber.used = true
-                console.log("second is", secondNumber.used, secondNumber.value)
+            if (!firstNumber.saved) {
+                firstNumber.saved = true
+                console.log("first is", firstNumber.saved, firstNumber.value)
                 decimal = false
             } else {
-                thirdNumber.used = true
-                console.log("third is", thirdNumber.used)
+                calculate()
+                plus = true
             }
+            decimal = false
             break;
         case "minusBtn":
             minus = true
-            proceed = true
-            if (!firstNumber.used) {
-                firstNumber.used = true
-            } else if (!secondNumber.used) {
-                secondNumber.used = true
+            if (!firstNumber.saved) {
+                firstNumber.saved = true
+                console.log("first is", firstNumber.saved, firstNumber.value)
+                decimal = false
             } else {
-                thirdNumber.used = true
-            } break;
+                calculate()
+                minus = true
+            }
+            decimal = false
+            break;
         case "multiplyBtn":
             multiply = true
-            proceed = true
-            if (!firstNumber.used) {
-                firstNumber.used = true
-            } else if (!secondNumber.used) {
-                secondNumber.used = true
+            if (!firstNumber.saved) {
+                firstNumber.saved = true
+                console.log("first is", firstNumber.saved, firstNumber.value)
+                decimal = false
             } else {
-                thirdNumber.used = true
-            } break;
+                calculate()
+                multiply = true
+            }
+            decimal = false
+            break;
         case "divideBtn":
             divide = true
-            proceed = true
-            if (!firstNumber.used) {
-                firstNumber.used = true
-            } else if (!secondNumber.used) {
-                secondNumber.used = true
+            if (!firstNumber.saved) {
+                firstNumber.saved = true
+                console.log("first is", firstNumber.saved, firstNumber.value)
+                decimal = false
             } else {
-                thirdNumber.used = true
-            } break;
+                calculate()
+                divide = true
+            }
+            decimal = false
+            break;
     }
 }
 
 const calculate = () => {
+    console.log('plus is', plus, 'minus is', minus, 'divide is', divide, 'multiply is', multiply)
     if (plus) {
-        if (!thirdNumber.used) {
-            if (decimal) {
+        if (firstNumber.saved) {
+            if (firstNumber.value % 1 != 0 || display.value % 1 != 0) {
                 console.log("decimal")
                 console.log(firstNumber.value, secondNumber.value)
                 total = parseFloat(firstNumber.value) + parseFloat(secondNumber.value)
-                secondNumber.used = true
-                console.log("second is", secondNumber.used)
-                display.textContent = total.toFixed(2)
+                display.value = total.toFixed(2)
+                firstNumber.value = total
                 minus = false
                 plus = false
                 divide = false
                 multiply = false
             } else {
                 console.log('no decimal')
+                console.log(firstNumber.value, secondNumber.value)
                 total = parseInt(firstNumber.value) + parseInt(secondNumber.value)
-                secondNumber.used = true
-                console.log("second is", secondNumber.used)
-                display.textContent = total.toFixed(2)
+                display.value = total
+                firstNumber.value = total
+                console.log(total)
                 minus = false
                 plus = false
                 divide = false
                 multiply = false
             }
-        } else {
-            if (decimal) {
-                total = parseFloat(total) + parseFloat(thirdNumber.value)
-                display.textContent = total.toFixed(2)
-                minus = false
-                plus = false
-                divide = false
-                multiply = false
-                thirdNumber.value = ''
-                thirdNumber.used = false
-            } else {
-                total = parseInt(total) + parseInt(thirdNumber.value)
-                display.textContent = total.toFixed(2)
-                minus = false
-                plus = false
-                divide = false
-                multiply = false
-                thirdNumber.value = ''
-                thirdNumber.used = false
-            }
+            console.log("first is", firstNumber.saved, firstNumber.value)
         }
         decimal = false
+        secondNumber.value = 0
     } else if (minus) {
-        if (!thirdNumber.used) {
-            total = parseInt(firstNumber.value) - parseInt(secondNumber.value)
-            secondNumber.used = true
-            console.log("second is", secondNumber.used)
-            display.textContent = total
-            minus = false
-            plus = false
-            divide = false
-            multiply = false
-        } else {
-            total = parseInt(total) - parseInt(thirdNumber.value)
-            display.textContent = total
-            minus = false
-            plus = false
-            divide = false
-            multiply = false
-            thirdNumber.value = ''
-            thirdNumber.used = false
+        if (firstNumber.saved) {
+            if (firstNumber.value % 1 != 0 || display.value % 1 != 0) {
+                console.log("decimal")
+                console.log(firstNumber.value, secondNumber.value)
+                total = parseFloat(firstNumber.value) - parseFloat(secondNumber.value)
+                display.value = total.toFixed(2)
+                firstNumber.value = total
+                minus = false
+                plus = false
+                divide = false
+                multiply = false
+            } else {
+                console.log('no decimal')
+                console.log(firstNumber.value, secondNumber.value)
+                total = parseInt(firstNumber.value) - parseInt(secondNumber.value)
+                display.value = total
+                firstNumber.value = total
+                console.log(total)
+                minus = false
+                plus = false
+                divide = false
+                multiply = false
+            }
+            console.log("first is", firstNumber.saved, firstNumber.value)
         }
+        decimal = false
+        secondNumber.value = 0
     } else if (divide) {
-        if (!thirdNumber.used) {
-            total = parseInt(firstNumber.value) / parseInt(secondNumber.value)
-            secondNumber.used = true
-            console.log("second is", secondNumber.used)
-            display.textContent = total
-            minus = false
-            plus = false
-            divide = false
-            multiply = false
-        } else {
-            total = parseInt(total) / parseInt(thirdNumber.value)
-            display.textContent = total
-            minus = false
-            plus = false
-            divide = false
-            multiply = false
-            thirdNumber.value = ''
-            thirdNumber.used = false
+        if (firstNumber.saved) {
+            if (firstNumber.value % 1 != 0 || display.value % 1 != 0) {
+                console.log("decimal")
+                console.log(firstNumber.value, secondNumber.value)
+                total = parseFloat(firstNumber.value) / parseFloat(secondNumber.value)
+                display.value = total.toFixed(2)
+                firstNumber.value = total
+                minus = false
+                plus = false
+                divide = false
+                multiply = false
+            } else {
+                console.log('no decimal')
+                console.log(firstNumber.value, secondNumber.value)
+                total = parseInt(firstNumber.value) / parseInt(secondNumber.value)
+                display.value = total
+                firstNumber.value = total
+                console.log(total)
+                minus = false
+                plus = false
+                divide = false
+                multiply = false
+            }
+            console.log("first is", firstNumber.saved, firstNumber.value)
         }
+        decimal = false
+        secondNumber.value = 0
     } else if (multiply) {
-        if (!thirdNumber.used) {
-            total = parseInt(firstNumber.value) * parseInt(secondNumber.value)
-            secondNumber.used = true
-            console.log("second is", secondNumber.used)
-            display.textContent = total
-            minus = false
-            plus = false
-            divide = false
-            multiply = false
-        } else {
-            total = parseInt(total) * parseInt(thirdNumber.value)
-            display.textContent = total
-            minus = false
-            plus = false
-            divide = false
-            multiply = false
-            thirdNumber.value = ''
-            thirdNumber.used = false
+        if (firstNumber.saved) {
+            if (firstNumber.value % 1 != 0 || display.value % 1 != 0) {
+                console.log("decimal")
+                console.log(firstNumber.value, secondNumber.value)
+                total = parseFloat(firstNumber.value) * parseFloat(secondNumber.value)
+                display.value = total.toFixed(2)
+                firstNumber.value = total
+                minus = false
+                plus = false
+                divide = false
+                multiply = false
+            } else {
+                console.log('no decimal')
+                console.log(firstNumber.value, secondNumber.value)
+                total = parseInt(firstNumber.value) * parseInt(secondNumber.value)
+                display.value = total
+                firstNumber.value = total
+                console.log(total)
+                minus = false
+                plus = false
+                divide = false
+                multiply = false
+            }
+            console.log("first is", firstNumber.saved, firstNumber.value)
         }
+        decimal = false
+        secondNumber.value = 0
     }
 }
 let toggle = 0
 const clear = () => {
-    if (toggle === 0) {
-        if (!firstNumber.used) {
-            firstNumber.value = ''
-        } else if (!secondNumber.value) {
-            secondNumber.value = ''
-        } else {
-            thirdNumber.value = ''
-        }
-        display.textContent = 0
-        toggle++
-        clearBtn.textContent = "AC"
-    } else {
-        minus = false
-        plus = false
-        divide = false
-        multiply = false
-        firstNumber.value = ''
-        secondNumber.value = ''
-        thirdNumber.value = ''
-        firstNumber.used = false
-        secondNumber.used = false
-        thirdNumber.used = false
-        display.textContent = 0
-        clearBtn.textContent = "C"
-        toggle = 0
-    }
+    minus = false
+    plus = false
+    divide = false
+    multiply = false
+    firstNumber.value = ''
+    secondNumber.value = ''
+    firstNumber.saved = false
+    secondNumber.saved = false
+    display.value = 0
+    clearBtn.textContent = "AC"
+    toggle = 0
+    // }
 }
 //make button links
 oneBtn.onclick = assignNumbers
